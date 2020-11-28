@@ -1,0 +1,20 @@
+{
+  "version": 2,
+  "dgSpecHash": "BMvMnOktrmgtbkr3tc0zXDVbJ7/1uZIDSqWXQ0CA2vtQRMUmLC24DFrhtO+YEFgKCSQTTGgUmc3lGYBqZL1VMQ==",
+  "success": true,
+  "projectFilePath": "D:\\Projects\\C#\\GoGame\\LetsGo\\Game\\Game.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Admin\\.nuget\\packages\\opentk\\4.3.0\\opentk.4.3.0.nupkg.sha512",
+    "C:\\Users\\Admin\\.nuget\\packages\\opentk.compute\\4.3.0\\opentk.compute.4.3.0.nupkg.sha512",
+    "C:\\Users\\Admin\\.nuget\\packages\\opentk.core\\4.3.0\\opentk.core.4.3.0.nupkg.sha512",
+    "C:\\Users\\Admin\\.nuget\\packages\\opentk.graphics\\4.3.0\\opentk.graphics.4.3.0.nupkg.sha512",
+    "C:\\Users\\Admin\\.nuget\\packages\\opentk.input\\4.3.0\\opentk.input.4.3.0.nupkg.sha512",
+    "C:\\Users\\Admin\\.nuget\\packages\\opentk.mathematics\\4.3.0\\opentk.mathematics.4.3.0.nupkg.sha512",
+    "C:\\Users\\Admin\\.nuget\\packages\\opentk.openal\\4.3.0\\opentk.openal.4.3.0.nupkg.sha512",
+    "C:\\Users\\Admin\\.nuget\\packages\\opentk.redist.glfw\\3.3.0-pre20200830200122\\opentk.redist.glfw.3.3.0-pre20200830200122.nupkg.sha512",
+    "C:\\Users\\Admin\\.nuget\\packages\\opentk.windowing.common\\4.3.0\\opentk.windowing.common.4.3.0.nupkg.sha512",
+    "C:\\Users\\Admin\\.nuget\\packages\\opentk.windowing.desktop\\4.3.0\\opentk.windowing.desktop.4.3.0.nupkg.sha512",
+    "C:\\Users\\Admin\\.nuget\\packages\\opentk.windowing.graphicslibraryframework\\4.3.0\\opentk.windowing.graphicslibraryframework.4.3.0.nupkg.sha512"
+  ],
+  "logs": []
+}

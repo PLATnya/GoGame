@@ -1,0 +1,15 @@
+﻿<wpf:ResourceDictionary xml:space="preserve" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:ss="urn:shemas-jetbrains-com:settings-storage-xaml" xmlns:wpf="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+	<s:Boolean x:Key="/Default/AddReferences/RecentPaths/=D_003A_005CDownload_005CSFML_002ENet_002D2_002E4_002D64_002Dbit_005CSFML_002ENet_002D2_002E4_005Clib_005Csfml_002Daudio_002Edll/@EntryIndexedValue">True</s:Boolean>
+	<s:Boolean x:Key="/Default/AddReferences/RecentPaths/=D_003A_005CDownload_005CSFML_002ENet_002D2_002E4_002D64_002Dbit_005CSFML_002ENet_002D2_002E4_005Clib_005Csfml_002Dgraphics_002Edll/@EntryIndexedValue">True</s:Boolean>
+	<s:Boolean x:Key="/Default/AddReferences/RecentPaths/=D_003A_005CDownload_005CSFML_002ENet_002D2_002E4_002D64_002Dbit_005CSFML_002ENet_002D2_002E4_005Clib_005Csfml_002Dsystem_002Edll/@EntryIndexedValue">True</s:Boolean>
+	<s:Boolean x:Key="/Default/AddReferences/RecentPaths/=D_003A_005CDownload_005CSFML_002ENet_002D2_002E4_002D64_002Dbit_005CSFML_002ENet_002D2_002E4_005Clib_005Csfml_002Dwindow_002Edll/@EntryIndexedValue">True</s:Boolean>
+	<s:Boolean x:Key="/Default/AddReferences/RecentPaths/=D_003A_005CProjects_005CC_0023_005CGoGame_005CSFML_002ENet_002D2_002E4_002D64_002Dbit_005CSFML_002ENet_002D2_002E4_005Clib_005Csfml_002Daudio_002Edll/@EntryIndexedValue">True</s:Boolean>
+	<s:Boolean x:Key="/Default/AddReferences/RecentPaths/=D_003A_005CProjects_005CC_0023_005CGoGame_005CSFML_002ENet_002D2_002E4_002D64_002Dbit_005CSFML_002ENet_002D2_002E4_005Clib_005Csfml_002Dgraphics_002Edll/@EntryIndexedValue">True</s:Boolean>
+	<s:Boolean x:Key="/Default/AddReferences/RecentPaths/=D_003A_005CProjects_005CC_0023_005CGoGame_005CSFML_002ENet_002D2_002E4_002D64_002Dbit_005CSFML_002ENet_002D2_002E4_005Clib_005Csfml_002Dsystem_002Edll/@EntryIndexedValue">True</s:Boolean>
+	<s:Boolean x:Key="/Default/AddReferences/RecentPaths/=D_003A_005CProjects_005CC_0023_005CGoGame_005CSFML_002ENet_002D2_002E4_002D64_002Dbit_005CSFML_002ENet_002D2_002E4_005Clib_005Csfml_002Dwindow_002Edll/@EntryIndexedValue">True</s:Boolean>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=3b466b9e_002D38fa_002D472d_002D9822_002D926265d3c775/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="Tests" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;TestAncestor&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::0BCBB0EE-0D63-4FC8-B49C-9E15980A6AFE::.NETCoreApp,Version=v3.1::NUnitTest.Tests&lt;/TestId&gt;&#xD;
+  &lt;/TestAncestor&gt;&#xD;
+&lt;/SessionState&gt;</s:String>
+	</wpf:ResourceDictionary>
