@@ -5,25 +5,86 @@
     <projectFile>UnitTest/UnitTest.vcxproj</projectFile>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9372218f-cb11-4cdd-bbf3-52bcf086106d" name="Default Changelist" comment="" />
+    <list default="true" id="9372218f-cb11-4cdd-bbf3-52bcf086106d" name="Default Changelist" comment="Some commit">
+      <change afterPath="$PROJECT_DIR$/Game/Utilities.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.LetsGo/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.LetsGo/.idea/contentModel.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.LetsGo/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.LetsGo/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.LetsGo/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.LetsGo/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Game/Game.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Game/Game.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Game/MainGame.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Game/MainGame.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Game/bin/Debug/netcoreapp3.1/Game.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Game/bin/Debug/netcoreapp3.1/Game.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Game/bin/Debug/netcoreapp3.1/Game.exe" beforeDir="false" afterPath="$PROJECT_DIR$/Game/bin/Debug/netcoreapp3.1/Game.exe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Game/bin/Debug/netcoreapp3.1/Game.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/Game/bin/Debug/netcoreapp3.1/Game.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Game/bin/Debug/netcoreapp3.1/Game.runtimeconfig.dev.json" beforeDir="false" afterPath="$PROJECT_DIR$/Game/bin/Debug/netcoreapp3.1/Game.runtimeconfig.dev.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Game/obj/Debug/netcoreapp3.1/Game.assets.cache" beforeDir="false" afterPath="$PROJECT_DIR$/Game/obj/Debug/netcoreapp3.1/Game.assets.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Game/obj/Debug/netcoreapp3.1/Game.csproj.CoreCompileInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/Game/obj/Debug/netcoreapp3.1/Game.csproj.CoreCompileInputs.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Game/obj/Debug/netcoreapp3.1/Game.csproj.FileListAbsolute.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Game/obj/Debug/netcoreapp3.1/Game.csproj.FileListAbsolute.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Game/obj/Debug/netcoreapp3.1/Game.csprojAssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/Game/obj/Debug/netcoreapp3.1/Game.csprojAssemblyReference.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Game/obj/Debug/netcoreapp3.1/Game.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Game/obj/Debug/netcoreapp3.1/Game.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Game/obj/Debug/netcoreapp3.1/Game.genruntimeconfig.cache" beforeDir="false" afterPath="$PROJECT_DIR$/Game/obj/Debug/netcoreapp3.1/Game.genruntimeconfig.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Game/obj/Debug/netcoreapp3.1/Game.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/Game/obj/Debug/netcoreapp3.1/Game.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Game/obj/Game.csproj.nuget.dgspec.json" beforeDir="false" afterPath="$PROJECT_DIR$/Game/obj/Game.csproj.nuget.dgspec.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Game/obj/Game.csproj.nuget.g.props" beforeDir="false" afterPath="$PROJECT_DIR$/Game/obj/Game.csproj.nuget.g.props" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Game/obj/project.assets.json" beforeDir="false" afterPath="$PROJECT_DIR$/Game/obj/project.assets.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Game/obj/project.nuget.cache" beforeDir="false" afterPath="$PROJECT_DIR$/Game/obj/project.nuget.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Game/obj/project.packagespec.json" beforeDir="false" afterPath="$PROJECT_DIR$/Game/obj/project.packagespec.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Game/obj/rider.project.restore.info" beforeDir="false" afterPath="$PROJECT_DIR$/Game/obj/rider.project.restore.info" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LetsGo.sln" beforeDir="false" afterPath="$PROJECT_DIR$/LetsGo.sln" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LetsGo.sln.DotSettings.user" beforeDir="false" afterPath="$PROJECT_DIR$/LetsGo.sln.DotSettings.user" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NUnitTest/UnitTest1.cs" beforeDir="false" afterPath="$PROJECT_DIR$/NUnitTest/UnitTest1.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NUnitTest/bin/Debug/netcoreapp3.1/Game.dll" beforeDir="false" afterPath="$PROJECT_DIR$/NUnitTest/bin/Debug/netcoreapp3.1/Game.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NUnitTest/bin/Debug/netcoreapp3.1/Game.exe" beforeDir="false" afterPath="$PROJECT_DIR$/NUnitTest/bin/Debug/netcoreapp3.1/Game.exe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NUnitTest/bin/Debug/netcoreapp3.1/Game.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/NUnitTest/bin/Debug/netcoreapp3.1/Game.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NUnitTest/bin/Debug/netcoreapp3.1/NUnitTest.dll" beforeDir="false" afterPath="$PROJECT_DIR$/NUnitTest/bin/Debug/netcoreapp3.1/NUnitTest.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NUnitTest/bin/Debug/netcoreapp3.1/NUnitTest.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/NUnitTest/bin/Debug/netcoreapp3.1/NUnitTest.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NUnitTest/bin/Debug/netcoreapp3.1/NUnitTest.runtimeconfig.dev.json" beforeDir="false" afterPath="$PROJECT_DIR$/NUnitTest/bin/Debug/netcoreapp3.1/NUnitTest.runtimeconfig.dev.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NUnitTest/obj/Debug/netcoreapp3.1/NUnitTest.assets.cache" beforeDir="false" afterPath="$PROJECT_DIR$/NUnitTest/obj/Debug/netcoreapp3.1/NUnitTest.assets.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NUnitTest/obj/Debug/netcoreapp3.1/NUnitTest.csproj.CoreCompileInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/NUnitTest/obj/Debug/netcoreapp3.1/NUnitTest.csproj.CoreCompileInputs.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NUnitTest/obj/Debug/netcoreapp3.1/NUnitTest.csproj.FileListAbsolute.txt" beforeDir="false" afterPath="$PROJECT_DIR$/NUnitTest/obj/Debug/netcoreapp3.1/NUnitTest.csproj.FileListAbsolute.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NUnitTest/obj/Debug/netcoreapp3.1/NUnitTest.csprojAssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/NUnitTest/obj/Debug/netcoreapp3.1/NUnitTest.csprojAssemblyReference.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NUnitTest/obj/Debug/netcoreapp3.1/NUnitTest.dll" beforeDir="false" afterPath="$PROJECT_DIR$/NUnitTest/obj/Debug/netcoreapp3.1/NUnitTest.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NUnitTest/obj/Debug/netcoreapp3.1/NUnitTest.genruntimeconfig.cache" beforeDir="false" afterPath="$PROJECT_DIR$/NUnitTest/obj/Debug/netcoreapp3.1/NUnitTest.genruntimeconfig.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NUnitTest/obj/Debug/netcoreapp3.1/NUnitTest.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/NUnitTest/obj/Debug/netcoreapp3.1/NUnitTest.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NUnitTest/obj/NUnitTest.csproj.nuget.dgspec.json" beforeDir="false" afterPath="$PROJECT_DIR$/NUnitTest/obj/NUnitTest.csproj.nuget.dgspec.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NUnitTest/obj/NUnitTest.csproj.nuget.g.props" beforeDir="false" afterPath="$PROJECT_DIR$/NUnitTest/obj/NUnitTest.csproj.nuget.g.props" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NUnitTest/obj/project.assets.json" beforeDir="false" afterPath="$PROJECT_DIR$/NUnitTest/obj/project.assets.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NUnitTest/obj/project.nuget.cache" beforeDir="false" afterPath="$PROJECT_DIR$/NUnitTest/obj/project.nuget.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NUnitTest/obj/project.packagespec.json" beforeDir="false" afterPath="$PROJECT_DIR$/NUnitTest/obj/project.packagespec.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NUnitTest/obj/rider.project.restore.info" beforeDir="false" afterPath="$PROJECT_DIR$/NUnitTest/obj/rider.project.restore.info" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestProj/obj/Debug/netcoreapp3.1/TestProj.assets.cache" beforeDir="false" afterPath="$PROJECT_DIR$/TestProj/obj/Debug/netcoreapp3.1/TestProj.assets.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestProj/obj/Debug/netcoreapp3.1/TestProj.csprojAssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/TestProj/obj/Debug/netcoreapp3.1/TestProj.csprojAssemblyReference.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestProj/obj/TestProj.csproj.nuget.dgspec.json" beforeDir="false" afterPath="$PROJECT_DIR$/TestProj/obj/TestProj.csproj.nuget.dgspec.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestProj/obj/TestProj.csproj.nuget.g.props" beforeDir="false" afterPath="$PROJECT_DIR$/TestProj/obj/TestProj.csproj.nuget.g.props" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestProj/obj/project.assets.json" beforeDir="false" afterPath="$PROJECT_DIR$/TestProj/obj/project.assets.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestProj/obj/project.nuget.cache" beforeDir="false" afterPath="$PROJECT_DIR$/TestProj/obj/project.nuget.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestProj/obj/project.packagespec.json" beforeDir="false" afterPath="$PROJECT_DIR$/TestProj/obj/project.packagespec.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestProj/obj/rider.project.restore.info" beforeDir="false" afterPath="$PROJECT_DIR$/TestProj/obj/rider.project.restore.info" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/Game/MainGame.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/83BD5AA8-4722-46C6-8329-A40E3E692F61/fb/6e2c5536/CircleShape.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$USER_HOME$/AppData/Local/Symbols/src/nunit/nunit/c933a883ea25263ec575a654dae69fa38000edd9/src/NUnitFramework/framework/Internal/Reflect.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/83BD5AA8-4722-46C6-8329-A40E3E692F61/f3/d3577ef6/Drawable.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$USER_HOME$/AppData/Local/Symbols/src/nunit/nunit/c933a883ea25263ec575a654dae69fa38000edd9/src/NUnitFramework/framework/Internal/Commands/SetUpTearDownItem.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/83BD5AA8-4722-46C6-8329-A40E3E692F61/14/d8f38ae2/RectangleShape.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/83BD5AA8-4722-46C6-8329-A40E3E692F61/da/74839bad/Shape.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
-    <option name="CHANGED_PATHS">
-      <list>
-        <option value="$PROJECT_DIR$/Game/Game.csproj" />
-        <option value="$PROJECT_DIR$/Game/Program.cs" />
-        <option value="$PROJECT_DIR$/TestProj/UnitTest1.cs" />
-        <option value="$PROJECT_DIR$/Game/MainGame.cs" />
-        <option value="$PROJECT_DIR$/NUnitTest/UnitTest1.cs" />
-      </list>
-    </option>
+    <changedPaths>
+      <option value="$PROJECT_DIR$/Game/Game.csproj" />
+      <option value="$PROJECT_DIR$/Game/f.cs" />
+      <option value="$PROJECT_DIR$/NUnitTest/UnitTest1.cs" />
+      <option value="$PROJECT_DIR$/Game/Utilities.cs" />
+      <option value="$PROJECT_DIR$/Game/MainGame.cs" />
+    </changedPaths>
   </component>
   <component name="ProjectId" id="1ksI93LwSpySNYE1aJ0OBxwsdS9" />
   <component name="ProjectViewState">
@@ -31,8 +92,18 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="DebuggerViewTab_PTCS_FirstProportionKey" value="0.3502052" />
+    <property name="DebuggerViewTab_PTCS_LastProportionKey" value="0.0" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="settings.editor.selected.configurable" value="editor.preferences.smartKeys_rider" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RunManager" selected=".NET Project.Game">
@@ -92,6 +163,13 @@
       <workItem from="1606482769855" duration="3759000" />
       <workItem from="1606500471864" duration="6962000" />
       <workItem from="1606557523436" duration="7069000" />
+      <workItem from="1606658019408" duration="22491000" />
+      <workItem from="1606726762367" duration="29629000" />
+      <workItem from="1606764616579" duration="65000" />
+      <workItem from="1606826981638" duration="1678000" />
+      <workItem from="1606847418983" duration="5876000" />
+      <workItem from="1606989676603" duration="24101000" />
+      <workItem from="1607940217271" duration="1829000" />
     </task>
     <servers />
   </component>
@@ -100,37 +178,21 @@
   </component>
   <component name="UnityProjectConfiguration" hasMinimizedUI="false" />
   <component name="UnityUnitTestConfiguration" currentTestLauncher="NUnit" />
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-  </component>
-  <component name="WindowStateProjectService">
-    <state width="1860" height="71" key="GridCell.Tab.0.bottom" timestamp="1606511802638">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1860" height="71" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1606511802638" />
-    <state width="1860" height="71" key="GridCell.Tab.0.center" timestamp="1606511802638">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1860" height="71" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1606511802638" />
-    <state width="1860" height="71" key="GridCell.Tab.0.left" timestamp="1606511802636">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1860" height="71" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1606511802636" />
-    <state width="1860" height="71" key="GridCell.Tab.0.right" timestamp="1606511802638">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1860" height="71" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1606511802638" />
-    <state x="552" y="250" key="Rider.ProjectTemplateDialog.Size" timestamp="1606563195217">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="552" y="250" key="Rider.ProjectTemplateDialog.Size/0.0.1920.1040@0.0.1920.1040" timestamp="1606563195217" />
-    <state x="791" y="219" key="RiderGenerateDialog" timestamp="1606560269521">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="791" y="219" key="RiderGenerateDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1606560269521" />
-    <state x="623" y="229" width="672" height="678" key="search.everywhere.popup" timestamp="1606561185461">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="623" y="229" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1606561185461" />
+    <MESSAGE value="Some commit" />
+    <option name="LAST_COMMIT_MESSAGE" value="Some commit" />
   </component>
 </project>

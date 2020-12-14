@@ -7,16 +7,16 @@
 
     <ItemGroup>
       <Reference Include="sfml-audio, Version=2.4.2.0, Culture=neutral, PublicKeyToken=null">
-        <HintPath>..\..\SFML.Net-2.4-64-bit\SFML.Net-2.4\lib\sfml-audio.dll</HintPath>
+        <HintPath>..\..\SFML.Net-2.4\lib\sfml-audio.dll</HintPath>
       </Reference>
       <Reference Include="sfml-graphics, Version=2.4.2.0, Culture=neutral, PublicKeyToken=null">
-        <HintPath>..\..\SFML.Net-2.4-64-bit\SFML.Net-2.4\lib\sfml-graphics.dll</HintPath>
+        <HintPath>..\..\SFML.Net-2.4\lib\sfml-graphics.dll</HintPath>
       </Reference>
       <Reference Include="sfml-system, Version=2.4.2.0, Culture=neutral, PublicKeyToken=null">
-        <HintPath>..\..\SFML.Net-2.4-64-bit\SFML.Net-2.4\lib\sfml-system.dll</HintPath>
+        <HintPath>..\..\SFML.Net-2.4\lib\sfml-system.dll</HintPath>
       </Reference>
       <Reference Include="sfml-window, Version=2.4.2.0, Culture=neutral, PublicKeyToken=null">
-        <HintPath>..\..\SFML.Net-2.4-64-bit\SFML.Net-2.4\lib\sfml-window.dll</HintPath>
+        <HintPath>..\..\SFML.Net-2.4\lib\sfml-window.dll</HintPath>
       </Reference>
     </ItemGroup>
 

@@ -4939,19 +4939,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Admin\\.nuget\\packages\\": {}
+    "C:\\Users\\BOSS\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Projects\\C#\\GoGame\\LetsGo\\NUnitTest\\NUnitTest.csproj",
+      "projectUniqueName": "C:\\CurrentProjects\\LetsGo\\NUnitTest\\NUnitTest.csproj",
       "projectName": "NUnitTest",
-      "projectPath": "D:\\Projects\\C#\\GoGame\\LetsGo\\NUnitTest\\NUnitTest.csproj",
-      "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
-      "outputPath": "D:\\Projects\\C#\\GoGame\\LetsGo\\NUnitTest\\obj\\",
+      "projectPath": "C:\\CurrentProjects\\LetsGo\\NUnitTest\\NUnitTest.csproj",
+      "packagesPath": "C:\\Users\\BOSS\\.nuget\\packages\\",
+      "outputPath": "C:\\CurrentProjects\\LetsGo\\NUnitTest\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\BOSS\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp3.1"
@@ -4961,9 +4961,10 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
           "projectReferences": {
-            "D:\\Projects\\C#\\GoGame\\LetsGo\\Game\\Game.csproj": {
-              "projectPath": "D:\\Projects\\C#\\GoGame\\LetsGo\\Game\\Game.csproj"
+            "C:\\CurrentProjects\\LetsGo\\Game\\Game.csproj": {
+              "projectPath": "C:\\CurrentProjects\\LetsGo\\Game\\Game.csproj"
             }
           }
         }
@@ -4976,6 +4977,7 @@
     },
     "frameworks": {
       "netcoreapp3.1": {
+        "targetAlias": "netcoreapp3.1",
         "dependencies": {
           "Microsoft.NET.Test.Sdk": {
             "target": "Package",
@@ -5000,12 +5002,18 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
+        "downloadDependencies": [
+          {
+            "name": "Microsoft.AspNetCore.App.Ref",
+            "version": "[3.1.8, 3.1.8]"
+          }
+        ],
         "frameworkReferences": {
           "Microsoft.NETCore.App": {
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.301\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.100\\RuntimeIdentifierGraph.json"
       }
     }
   }

@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Projects\\C#\\GoGame\\LetsGo\\TestProj\\TestProj.csproj": {}
+    "C:\\CurrentProjects\\LetsGo\\TestProj\\TestProj.csproj": {}
   },
   "projects": {
-    "D:\\Projects\\C#\\GoGame\\LetsGo\\Game\\Game.csproj": {
+    "C:\\CurrentProjects\\LetsGo\\Game\\Game.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Projects\\C#\\GoGame\\LetsGo\\Game\\Game.csproj",
+        "projectUniqueName": "C:\\CurrentProjects\\LetsGo\\Game\\Game.csproj",
         "projectName": "Game",
-        "projectPath": "D:\\Projects\\C#\\GoGame\\LetsGo\\Game\\Game.csproj",
-        "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
-        "outputPath": "D:\\Projects\\C#\\GoGame\\LetsGo\\Game\\obj\\",
+        "projectPath": "C:\\CurrentProjects\\LetsGo\\Game\\Game.csproj",
+        "packagesPath": "C:\\Users\\BOSS\\.nuget\\packages\\",
+        "outputPath": "C:\\CurrentProjects\\LetsGo\\Game\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\BOSS\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
@@ -24,6 +24,7 @@
         },
         "frameworks": {
           "netcoreapp3.1": {
+            "targetAlias": "netcoreapp3.1",
             "projectReferences": {}
           }
         },
@@ -35,6 +36,7 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
           "dependencies": {
             "OpenTK": {
               "target": "Package",
@@ -51,26 +53,36 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[3.1.8, 3.1.8]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Host.win-x64",
+              "version": "[3.1.9, 3.1.9]"
+            }
+          ],
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.301\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.100\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "D:\\Projects\\C#\\GoGame\\LetsGo\\TestProj\\TestProj.csproj": {
+    "C:\\CurrentProjects\\LetsGo\\TestProj\\TestProj.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Projects\\C#\\GoGame\\LetsGo\\TestProj\\TestProj.csproj",
+        "projectUniqueName": "C:\\CurrentProjects\\LetsGo\\TestProj\\TestProj.csproj",
         "projectName": "TestProj",
-        "projectPath": "D:\\Projects\\C#\\GoGame\\LetsGo\\TestProj\\TestProj.csproj",
-        "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
-        "outputPath": "D:\\Projects\\C#\\GoGame\\LetsGo\\TestProj\\obj\\",
+        "projectPath": "C:\\CurrentProjects\\LetsGo\\TestProj\\TestProj.csproj",
+        "packagesPath": "C:\\Users\\BOSS\\.nuget\\packages\\",
+        "outputPath": "C:\\CurrentProjects\\LetsGo\\TestProj\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\BOSS\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
@@ -80,9 +92,10 @@
         },
         "frameworks": {
           "netcoreapp3.1": {
+            "targetAlias": "netcoreapp3.1",
             "projectReferences": {
-              "D:\\Projects\\C#\\GoGame\\LetsGo\\Game\\Game.csproj": {
-                "projectPath": "D:\\Projects\\C#\\GoGame\\LetsGo\\Game\\Game.csproj"
+              "C:\\CurrentProjects\\LetsGo\\Game\\Game.csproj": {
+                "projectPath": "C:\\CurrentProjects\\LetsGo\\Game\\Game.csproj"
               }
             }
           }
@@ -95,6 +108,7 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
           "dependencies": {
             "MSTest.TestAdapter": {
               "target": "Package",
@@ -123,12 +137,18 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[3.1.8, 3.1.8]"
+            }
+          ],
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.301\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.100\\RuntimeIdentifierGraph.json"
         }
       }
     }
