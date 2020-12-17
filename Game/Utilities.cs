@@ -2,10 +2,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Data;
+using System.Runtime.CompilerServices;
 using System.Threading.Tasks.Dataflow;
 using System.Threading.Tasks.Sources;
 using Events;
 using Game;
+using Rendering;
 using SFML.Graphics;
 using SFML.System;
 using SFML.Window;
@@ -46,6 +48,7 @@ namespace Rendering
 
     public abstract class ScreenObject
     {
+        public NotifierSub Subscribe;
         public abstract void Update();
     }
     
@@ -83,6 +86,12 @@ namespace Rendering
         {
             BackShape = new RectangleShape(new Vector2f(Text.GetGlobalBounds().Width, Text.GetGlobalBounds().Height));
             BackShape.FillColor = Color.Magenta;
+        }
+
+        public void SetPosition(int x, int y)
+        {
+            Text.Position = new Vector2f(x, y);
+            BackShape.Position = new Vector2f(x, y);
         }
         public override void Update()
         {
@@ -135,6 +144,18 @@ namespace Rendering
             }
             
         }
+
+        public virtual void Notify(EEvents Event,FMessage Data)
+        {
+            for (int i = 0; i < Objects.Count; i++)
+            {
+                if (Objects[i].Subscribe != null)
+                {
+                    Objects[i].Subscribe.Notify(Event, Data);
+                }
+            }
+            
+        }
     }
 
  
@@ -183,7 +204,7 @@ namespace Rendering
 
             UpdateScore();
         }
-
+        
         public void UpdateScore()
         {
 
@@ -199,6 +220,7 @@ namespace Rendering
             Vector2u Size = PlayerField.GetGame().MainFrame.Window.Size;
             GameObject Back = new GameObject(new RectangleShape((Vector2f)Size));
             Back.Shape.FillColor = Color.Blue;
+            
             AddShape(Back);
 
 
@@ -211,10 +233,58 @@ namespace Rendering
             int PlaceSize = MinDimension - Offset;
             
             
-            RectangleShape place = new RectangleShape(new Vector2f(PlaceSize, PlaceSize));
-            AddShape(new GameObject(place));
-            place.Position = new Vector2f(Offset/2, Offset/2);
-            place.FillColor = Color.Green;
+            GameObject place = new GameObject(new RectangleShape(new Vector2f(PlaceSize, PlaceSize)));
+            
+            place.Subscribe = new NotifierSub(place);
+           
+            place.Subscribe.AddObserver(new OnPressMessage(((i, i1) =>
+            {
+                
+                if (!Rules.GetActivePerson().IsBot())
+                {
+                    int Id = Rules.GetActivePerson().GetHashCode() - 1;
+                    Console.WriteLine(Id.ToString());
+                    SelectedStone = new Stone(CubeSize / 4f);
+                    Color CustomColor = new Color();
+                    CustomColor.A = 255;
+                    CustomColor.R = (byte) (255 * Id);
+                    CustomColor.G = (byte) (255 * Id);
+                    CustomColor.B = (byte) (255 * Id); 
+                    SelectedStone.Shape.FillColor = CustomColor;
+                    SelectedStone.ChangeState(new GrabedState(SelectedStone));
+                    AddShape(SelectedStone);
+                }
+                
+                
+            })));
+            
+            place.Subscribe.AddObserver(new OnReleaseMessage(((x, y) =>
+            {
+                if (!Rules.GetActivePerson().IsBot())
+                {
+                    if (SelectedStone != null)
+                    {
+                        (bool bCanPlace, int X, int Y) = CanTookStone(x, y);
+                        bool bStepDone = Rules.GetActivePerson().MakeStep(X, Y);
+                        if (bStepDone)
+                        {
+                            SelectedStone.ChangeState(null);
+                            TookOnGrid(SelectedStone, X, Y);
+                            CheckConfirmity();
+
+                        }
+                        else
+                        {
+                            RemoveShape(SelectedStone);
+                        }
+                        SelectedStone = null;
+                    }
+                }
+            })));
+            
+            AddShape(place);
+            place.Shape.Position = new Vector2f(Offset/2, Offset/2);
+            place.Shape.FillColor = Color.Green;
 
             int size = Rules.SIZE;
             CubeSize = (float)PlaceSize / size;
@@ -247,8 +317,16 @@ namespace Rendering
             AddShape(ScoreObjects[0]);
             AddShape(ScoreObjects[1]);
 
-
-            ButtonObject Pass = new ButtonObject("Pass", new Font("C:/CurrentProjects/LetsGo/Game/FONT.ttf"));
+            
+            GameObject Pass = new GameObject(new RectangleShape(new Vector2f(50,50)));
+            //ButtonObject Pass = new ButtonObject("Pass", new Font("C:/CurrentProjects/LetsGo/Game/FONT.ttf"));
+            Pass.Shape.Position = new Vector2f(750,300);
+            Pass.Subscribe = new NotifierSub(Pass);
+            Pass.Subscribe.AddObserver(new OnPressMessage(((i, i1) =>
+            {
+                Console.WriteLine("dfd");
+                if(!Rules.GetActivePerson().IsBot()) ((Player)Rules.GetActivePerson()).Pass();
+            })));
             AddShape(Pass);
         }
         
@@ -275,6 +353,37 @@ namespace Rendering
             _window.Closed += (obj, e) => { _window.Close(); };
 
             Groups = new List<Group>();
+
+            _window.MouseButtonPressed += (sender, args) =>
+            {
+                if (args.Button == Mouse.Button.Left)
+                {
+                    foreach (var VARIABLE in Groups)
+                    {
+                        FMessage Message = new FMessage();
+                        Message.Dict = new Dictionary<string, int>();
+                        Message.Dict["X"] = args.X;
+                        Message.Dict["Y"] = args.Y;
+                        VARIABLE.Notify(EEvents.PRESS, Message);
+                    }
+                }
+            };
+            _window.MouseButtonReleased += (sender, args) =>
+            {
+                if (args.Button == Mouse.Button.Left) 
+                {
+                    
+                    foreach (var VARIABLE in Groups)
+                    {
+                        FMessage Message = new FMessage();
+                        Message.Dict = new Dictionary<string, int>();
+                        Message.Dict["X"] = args.X;
+                        Message.Dict["Y"] = args.Y;
+                        VARIABLE.Notify(EEvents.RELEASE, Message);
+                    }
+                }
+            };
+            _window.MouseMoved += (sender, args) => {MousePosition = new Vector2f(args.X, args.Y); };
         }
 
         public void AddGroup(Group NewGroup)
@@ -301,44 +410,93 @@ namespace Rendering
 
 namespace Events
 {
-    enum EEvents
+    public enum EEvents
     {
-        REMOVE_STONE,
-        WIN,
-        LOSE,
-        SUICIDE,
-        ADD_STONE
+        PRESS,
+        RELEASE,
+        
     }
-    struct FMessage
+    public struct FMessage
     {
+        public Dictionary<string, int> Dict;
         public ArrayList Data;
     }
     public abstract class BigBrother
     {
-        internal abstract void OnNotify(IPerson Person, EEvents Event, FMessage Data);
+        internal abstract void OnNotify(ScreenObject Obj, EEvents Event, FMessage Data);
         public abstract BigBrother Next { get; set; }
     }
-    public class ChangeStoneState:BigBrother
+    public class OnPressMessage:BigBrother
     {
-        public ChangeStoneState()
+        public delegate void Pressed(int x, int y);
+
+        private Pressed OnPress;
+        public OnPressMessage(Pressed OnPress)
         {
-            next = null;
+            this.OnPress = OnPress;
         }
-        internal override void OnNotify(IPerson Person, EEvents Event,FMessage Message)
+        internal override void OnNotify(ScreenObject Obj, EEvents Event,FMessage Message)
         {
-            switch (Event)
+            if (Event == EEvents.PRESS)
             {
-                case EEvents.REMOVE_STONE:
-                    int Kills = (Message.Data[0] as Dictionary<int, int[]>).Count;
-                    Person.Score += Kills;
-                    Console.WriteLine("You,MFK, killed "+Kills+" enemy stones/");
-                    break;
-                case EEvents.SUICIDE:
-                    Console.WriteLine("Dont kill yourself< think ABOUT your parents!!");
-                    break;
-                case EEvents.ADD_STONE:
-                    break;
+               
+                int[,] Bounds = new int[2, 2];
+                if (Obj.GetType() == typeof(GameObject))
+                {
+                    GameObject GameObj = (GameObject) Obj;
+                    Vector2f Pos = (GameObj.Shape.Position - GameObj.Shape.Origin);
+                    Bounds[0, 0] = (int)Pos.X;
+                    Bounds[0, 1] = (int) Pos.X + (int)GameObj.Shape.GetGlobalBounds().Width;
+                    Bounds[1, 0] = (int)Pos.Y;
+                    Bounds[1, 1] = (int) Pos.X + (int)GameObj.Shape.GetGlobalBounds().Height;
+                }else if (Obj.GetType() == typeof(TextObject))
+                {
+                    TextObject GameObj = (TextObject) Obj;
+                    Vector2f Pos = (GameObj.Text.Position - GameObj.Text.Origin);
+                    Bounds[0, 0] = (int)Pos.X;
+                    Bounds[0, 1] = (int) Pos.X + (int)GameObj.Text.GetGlobalBounds().Width;
+                    Bounds[1, 0] = (int)Pos.Y;
+                    Bounds[1, 1] = (int) Pos.X + (int)GameObj.Text.GetGlobalBounds().Height;
+                }
+                
+                
+                int X = Message.Dict["X"];
+                int Y = Message.Dict["Y"];
+
+                if (X >= Bounds[0, 0] && X <= Bounds[0, 1] && Y >= Bounds[1, 0] && Y <= Bounds[1, 1])
+                {
+                    OnPress(X,Y);
+                }
+                
             }
+            
+        }
+
+        private BigBrother next;
+        public override BigBrother Next { get=>next; set=>next = value; }
+        
+    }
+    public class OnReleaseMessage:BigBrother
+    {
+        public delegate void Released(int x, int y);
+
+        private Released OnRelease;
+        public OnReleaseMessage(Released OnRelease)
+        {
+            this.OnRelease = OnRelease;
+        }
+        internal override void OnNotify(ScreenObject Obj, EEvents Event,FMessage Message)
+        {
+            if (Event == EEvents.RELEASE)
+            {
+                
+                int X = Message.Dict["X"];
+                int Y = Message.Dict["Y"];
+
+                OnRelease(X,Y);
+                
+            }
+            
         }
 
         private BigBrother next;
@@ -347,13 +505,20 @@ namespace Events
     }
     public class NotifierSub
     {
-        public virtual BigBrother f { get; set; }
+        private ScreenObject Self;
+        public BigBrother f { get; set; }
         public BigBrother ObserverHead { get; set; }
 
+        public NotifierSub(ScreenObject Obj)
+        {
+            Self = Obj;
+        }
         public void AddObserver(BigBrother Brother)
         {
             //BigBrother Buff = Brother;
             //Buff.Next = ObserverHead;
+            
+            //((OnPressMessage) Brother).Pressed = Make; 
             if(ObserverHead!=null)
                 Brother.Next = ObserverHead;
             ObserverHead = Brother;
@@ -380,12 +545,12 @@ namespace Events
                 current = current.Next;
             }   
         }
-        private void Notify(IPerson Person, EEvents Event, FMessage Data)
+        public void Notify(EEvents Event, FMessage Data)
         {
             BigBrother observer = ObserverHead;
             while (true)
             {
-                observer.OnNotify(Person, Event,Data);
+                observer.OnNotify(Self,Event,Data);
                 if(observer.Next != null)
                     observer = observer.Next;
                 else break;

@@ -6,7 +6,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9372218f-cb11-4cdd-bbf3-52bcf086106d" name="Default Changelist" comment="Have ntify">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.LetsGo/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.LetsGo/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.LetsGo/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.LetsGo/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Game/MainGame.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Game/MainGame.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Game/Utilities.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Game/Utilities.cs" afterDir="false" />
@@ -14,14 +13,6 @@
       <change beforePath="$PROJECT_DIR$/Game/bin/Debug/netcoreapp3.1/Game.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/Game/bin/Debug/netcoreapp3.1/Game.pdb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Game/obj/Debug/netcoreapp3.1/Game.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Game/obj/Debug/netcoreapp3.1/Game.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Game/obj/Debug/netcoreapp3.1/Game.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/Game/obj/Debug/netcoreapp3.1/Game.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NUnitTest/UnitTest1.cs" beforeDir="false" afterPath="$PROJECT_DIR$/NUnitTest/UnitTest1.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NUnitTest/bin/Debug/netcoreapp3.1/Game.dll" beforeDir="false" afterPath="$PROJECT_DIR$/NUnitTest/bin/Debug/netcoreapp3.1/Game.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NUnitTest/bin/Debug/netcoreapp3.1/Game.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/NUnitTest/bin/Debug/netcoreapp3.1/Game.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NUnitTest/bin/Debug/netcoreapp3.1/NUnitTest.dll" beforeDir="false" afterPath="$PROJECT_DIR$/NUnitTest/bin/Debug/netcoreapp3.1/NUnitTest.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NUnitTest/bin/Debug/netcoreapp3.1/NUnitTest.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/NUnitTest/bin/Debug/netcoreapp3.1/NUnitTest.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NUnitTest/obj/Debug/netcoreapp3.1/NUnitTest.csprojAssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/NUnitTest/obj/Debug/netcoreapp3.1/NUnitTest.csprojAssemblyReference.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NUnitTest/obj/Debug/netcoreapp3.1/NUnitTest.dll" beforeDir="false" afterPath="$PROJECT_DIR$/NUnitTest/obj/Debug/netcoreapp3.1/NUnitTest.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NUnitTest/obj/Debug/netcoreapp3.1/NUnitTest.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/NUnitTest/obj/Debug/netcoreapp3.1/NUnitTest.pdb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -138,7 +129,7 @@
       <workItem from="1608119633408" duration="3148000" />
       <workItem from="1608125676686" duration="23324000" />
       <workItem from="1608195203255" duration="7734000" />
-      <workItem from="1608214859833" duration="8198000" />
+      <workItem from="1608214859833" duration="19689000" />
     </task>
     <task id="LOCAL-00001" summary="Have ntify">
       <created>1607942505695</created>

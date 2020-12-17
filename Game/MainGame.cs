@@ -131,9 +131,7 @@ namespace Game
             {
                 OcupateEnemy();
                 ClearField();
-                
-                
-
+             
                 PassesCount = 0;
                 Rules.NextStep();
             }
@@ -236,9 +234,9 @@ namespace Game
             }
             else
             {
-                
+                Console.WriteLine(Persons[0].Score.ToString()+" "+ Persons[1].Score.ToString());
                 PlayerField.GetGame().MainFrame.Window.Close();
-                //TODO: post end game logic
+                //TODO: post end game logic its fucking hard
             }
         }
 
@@ -389,57 +387,7 @@ namespace Game
 
 
 
-            Frame.Window.MouseMoved += (obj, e) => { Frame.MousePosition = new Vector2f(e.X, e.Y); };
-            
-            Frame.Window.MouseButtonPressed += (obj, e) =>
-            {
-                if (e.Button == Mouse.Button.Left)
-                {
-                    if (!Rules.GetActivePerson().IsBot())
-                    {
-                        int Id = Rules.GetActivePerson().GetHashCode() - 1;
-                        Console.WriteLine(Id.ToString());
-                        Go.SelectedStone = new Stone(Go.CubeSize / 4f);
-                        Color CustomColor = new Color();
-                        CustomColor.A = 255;
-                        CustomColor.R = (byte) (255 * Id);
-                        CustomColor.G = (byte) (255 * Id);
-                        CustomColor.B = (byte) (255 * Id);
-                        Go.SelectedStone.Shape.FillColor = CustomColor;
-                        Go.SelectedStone.ChangeState(new GrabedState(Go.SelectedStone));
-                        Go.AddShape(Go.SelectedStone);
-                    }
-                }
-            };
-            Frame.Window.MouseButtonReleased += (obj, e) =>
-            {
-                if (e.Button == Mouse.Button.Left)
-                {
-                    if (!Rules.GetActivePerson().IsBot())
-                    {
-                        if (Go.SelectedStone != null)
-                        {
-                            (bool bCanPlace, int X, int Y) = Go.CanTookStone(e.X, e.Y);
-                            bool bStepDone = Rules.GetActivePerson().MakeStep(X, Y);
-                            if (bStepDone)
-                            {
-                                Go.SelectedStone.ChangeState(null);
-                                Go.TookOnGrid(Go.SelectedStone, X, Y);
-                                Go.CheckConfirmity();
-
-                            }
-                            else
-                            {
-                                Go.RemoveShape(Go.SelectedStone);
-                            }
-                            Go.SelectedStone = null;
-                        }
-                    }
-                }
-            };
-            
-            
-            
+           
             
             
             
@@ -453,7 +401,9 @@ namespace Game
                 {
                     switch (e.Code)
                     {
-                        
+                        case Keyboard.Key.F:
+                            ((Player)Rules.GetActivePerson()).Pass();
+                            break;
                     }
                     
                 }
