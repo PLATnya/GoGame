@@ -4,116 +4,43 @@ using System.Collections.Generic;
 using System.ComponentModel.Design;
 using System.Data;
 using System.IO;
+using System.Reflection.Metadata.Ecma335;
+using System.Runtime.InteropServices.WindowsRuntime;
 using System.Security;
 using OpenTK.Windowing.Desktop;
 using Rendering;
+using Events;
+using OpenTK.Graphics.ES11;
+using SFML.Graphics;
+using SFML.System;
+using SFML.Window;
 
 
-//мост
-//наблюдатель   
 namespace Game
 {
-    enum EEvents
-    {
-        REMOVE_STONE,
-        WIN,
-        LOSE,
-        SUICIDE,
-        ADD_STONE
-    }
-    struct FMessage
-    {
-        public ArrayList Data;
-    }
-    public abstract class BigBrother
-    {
-        internal abstract void OnNotify(IPerson Person, EEvents Event, FMessage Data);
-        public abstract BigBrother Next { get; set; }
-    }
-    public class ChangeStoneState:BigBrother
-    {
-        public ChangeStoneState()
-        {
-            next = null;
-        }
-        internal override void OnNotify(IPerson Person, EEvents Event,FMessage Message)
-        {
-            switch (Event)
-            {
-                case EEvents.REMOVE_STONE:
-                    int Kills = (Message.Data[0] as Dictionary<int, int[]>).Count;
-                    Person.Score += Kills;
-                    Console.WriteLine("You,MFK, killed "+Kills+" enemy stones/");
-                    break;
-                case EEvents.SUICIDE:
-                    Console.WriteLine("Dont kill yourself< think ABOUT your parents!!");
-                    break;
-                case EEvents.ADD_STONE:
-                    break;
-            }
-        }
-
-        private BigBrother next;
-        public override BigBrother Next { get=>next; set=>next = value; }
-    }
+    
     
     public abstract class IPerson
     {
+        public abstract bool IsBot();
         protected abstract int id { get;}
         public abstract IRules Rules { get; set; }
         public abstract int Score { get; set; }
+
         public abstract bool MakeStep(int x, int y);
-        
+        internal abstract int PassesCount { get; set; }
+
     }
     public class Player:IPerson
     {
-        public BigBrother ObserverHead { get; set; }
-
-        public void AddObserver(BigBrother Brother)
-        {
-            //BigBrother Buff = Brother;
-            //Buff.Next = ObserverHead;
-            if(ObserverHead!=null)
-                Brother.Next = ObserverHead;
-            ObserverHead = Brother;
-            //ObserverHead = Buff;
-        }
-
-        public void Remove(ref BigBrother Brother)
-        {
-            if (ReferenceEquals(ObserverHead, Brother))
-            {
-                ObserverHead = Brother.Next; 
-                Brother.Next = null;
-                return; 
-            }
-            BigBrother current = ObserverHead; 
-            while (current != null) 
-            { 
-                if (current.Next == Brother) 
-                { 
-                    current.Next = Brother.Next; 
-                    Brother.Next = null; 
-                    return;
-                }
-                current = current.Next;
-            }   
-        }
-        private void Notify(IPerson Person, EEvents Event, FMessage Data)
-        {
-            BigBrother observer = ObserverHead;
-            while (true)
-            {
-                observer.OnNotify(Person, Event,Data);
-                if(observer.Next != null)
-                    observer = observer.Next;
-                else break;
-            }
-        }
-
+        internal override int PassesCount { get; set; }
         protected override int id { get; }
         public override IRules Rules { get; set; }
         public override int Score { get; set; }
+        public override bool IsBot()
+        {
+            return false;
+        }
 
         int MakeStatusStone(int X, int Y, ref Dictionary<int, int[]> Group, ref bool bOpen)
         {
@@ -165,10 +92,14 @@ namespace Game
                         else
                         {
                             FillByKey(Group,-1);
+                            int Kills = Group.Count;
+                            Score += Kills;
+                            Console.WriteLine("You,MFK, killed "+Kills+" enemy stones/");
+                            /*
                             FMessage Message = new FMessage();
                             Message.Data = new ArrayList();
                             Message.Data.Add(Group);
-                            Notify(this,EEvents.REMOVE_STONE,Message);
+                            Notify(this,EEvents.REMOVE_STONE,Message);*/
                         }   
                         Group.Clear();
                         //уничтожаем по групам(меняем значение на нейтральное)
@@ -194,21 +125,28 @@ namespace Game
         }
         public override bool MakeStep(int x, int y)
         {
+            
             bool bAnswer = Rules.Check(GetHashCode(),x,y);
             if (bAnswer)
             {
-                
                 OcupateEnemy();
                 ClearField();
-            }
-            else
-            {
-                Notify(this,EEvents.SUICIDE,new FMessage());
+                
+                
+
+                PassesCount = 0;
+                Rules.NextStep();
             }
             return bAnswer;
             
         }
         
+        //
+        public void Pass( )
+        {
+            PassesCount += 1;
+            Rules.NextStep();
+        }
         public override int GetHashCode()
         {
             return id;
@@ -230,6 +168,7 @@ namespace Game
             {
                 Rules = rules;
                 id = 1;
+                Rules.AddPlayer(this);
             }
         }
 
@@ -239,12 +178,17 @@ namespace Game
             {
                 Rules = rules;
                 this.id = id;
+                Rules.AddPlayer(this);
             }
             
         }
     }
     public interface IRules
     {
+
+
+        public void NextStep();
+        public void AddPlayer(IPerson Person);
         public int[,] Matrix { get; set; }
         public int SIZE { get; set; }
         public bool Check(int id, int x, int y);
@@ -271,21 +215,53 @@ namespace Game
     }
     public class GoRules:IRules
     {
-        
+        public List<IPerson> Persons;
+        private int ActivePersonIndex;
         private int _size;
+        private bool bIsFinished;
+        
+
+        public void NextStep()
+        {
+            int Passes = 0;
+            foreach (IPerson Pers in Persons)
+            {
+                Passes += Pers.PassesCount;
+            }
+            if (Passes >= 2) bIsFinished = true;
+            if (!bIsFinished)
+            {
+                ActivePersonIndex++;
+                if (ActivePersonIndex >= Persons.Count) ActivePersonIndex = 0;
+            }
+            else
+            {
+                
+                PlayerField.GetGame().MainFrame.Window.Close();
+                //TODO: post end game logic
+            }
+        }
+
+        public IPerson GetActivePerson()
+        {
+            return Persons[ActivePersonIndex];}
+
+        public void AddPlayer(IPerson Person)
+        {
+            Persons.Add(Person);
+        }
+
         public int[,] Matrix { get; set; }
         
-        private int? this[int x, int y]
+        public int? this[int x, int y]
         {
 
             get
             {
-                if (x < 0 || x >= Matrix.GetLength(0) ||
-                    y < 0 || x >= Matrix.GetLength(1))
-                    return null;
+                if (x < 0 || x >= Matrix.GetLength(0) || y < 0 || y >= Matrix.GetLength(1)) return null; 
                 return Matrix[x, y];
             }
-            set=>  Matrix[x, y] = (int) value;
+            set=>  Matrix[x, y] =  (int)value;
         }
         public int SIZE
         {
@@ -297,12 +273,14 @@ namespace Game
                     Matrix = new int[value,value];
                 }
                 _size = value;
+                
             }
         }
 
         public GoRules(int size)
         {
             SIZE = size;
+            Persons = new List<IPerson>(2);
         }
 
         public void SetMatrix(int[,] Matrix)
@@ -389,14 +367,7 @@ namespace Game
             }
             return _instance;
         }
-
-        
     }
-    
-    
-    
-    у
-    //TODO: сделать АДАПТЕР из массива игры в красивую графеку
     
     class Program
     {
@@ -404,44 +375,100 @@ namespace Game
         {
             
             
+            PlayerField Field = PlayerField.GetGame();
+            Graphics Frame = Field.MainFrame;
+            GoRules Rules = new GoRules(9);
+            
+            
+            Player FirstPlayer = new Player(Rules,1);
+            Player SecondPlayer = new Player(Rules,2);
 
-            /*
-            uint WIDTH = 800;
-            uint HEIGTH = 800;
-            Graphics graphics = new Graphics(WIDTH,HEIGTH);
 
-            int Offset = 50;
-            int PlaceSize = (int)Math.Min(WIDTH, HEIGTH) - Offset;
-            
-            
-            RectangleShape place = new RectangleShape(new Vector2f(PlaceSize, PlaceSize));
-            graphics.AddShape(place);
-            place.Position = new Vector2f(Offset/2, Offset/2);
-            place.FillColor = Color.Green;
+            Goban Go = new Goban(Rules);
+            Frame.AddGroup(Go);
 
-            int size = 9;
-            float CubeSize = (float)PlaceSize / size;
+
+
+            Frame.Window.MouseMoved += (obj, e) => { Frame.MousePosition = new Vector2f(e.X, e.Y); };
             
-            float RectOffset = Offset / 2 + CubeSize / 2;
-            
-            for (int i = 0; i < size; i ++)
+            Frame.Window.MouseButtonPressed += (obj, e) =>
             {
-                
-                RectangleShape lineHorizontal = new RectangleShape(new Vector2f(PlaceSize-CubeSize, 1));
-                lineHorizontal.FillColor = Color.Black;
-                lineHorizontal.Position = new Vector2f(RectOffset,RectOffset + CubeSize * i);
-                graphics.AddShape(lineHorizontal);
-                
-                RectangleShape lineVertical = new RectangleShape( new Vector2f(1,PlaceSize-CubeSize));
-                lineVertical.FillColor = Color.Black;
-                lineVertical.Position = new Vector2f(RectOffset + CubeSize * i,RectOffset);
-                graphics.AddShape(lineVertical);
-            }
+                if (e.Button == Mouse.Button.Left)
+                {
+                    if (!Rules.GetActivePerson().IsBot())
+                    {
+                        int Id = Rules.GetActivePerson().GetHashCode() - 1;
+                        Console.WriteLine(Id.ToString());
+                        Go.SelectedStone = new Stone(Go.CubeSize / 4f);
+                        Color CustomColor = new Color();
+                        CustomColor.A = 255;
+                        CustomColor.R = (byte) (255 * Id);
+                        CustomColor.G = (byte) (255 * Id);
+                        CustomColor.B = (byte) (255 * Id);
+                        Go.SelectedStone.Shape.FillColor = CustomColor;
+                        Go.SelectedStone.ChangeState(new GrabedState(Go.SelectedStone));
+                        Go.AddShape(Go.SelectedStone);
+                    }
+                }
+            };
+            Frame.Window.MouseButtonReleased += (obj, e) =>
+            {
+                if (e.Button == Mouse.Button.Left)
+                {
+                    if (!Rules.GetActivePerson().IsBot())
+                    {
+                        if (Go.SelectedStone != null)
+                        {
+                            (bool bCanPlace, int X, int Y) = Go.CanTookStone(e.X, e.Y);
+                            bool bStepDone = Rules.GetActivePerson().MakeStep(X, Y);
+                            if (bStepDone)
+                            {
+                                Go.SelectedStone.ChangeState(null);
+                                Go.TookOnGrid(Go.SelectedStone, X, Y);
+                                Go.CheckConfirmity();
+
+                            }
+                            else
+                            {
+                                Go.RemoveShape(Go.SelectedStone);
+                            }
+                            Go.SelectedStone = null;
+                        }
+                    }
+                }
+            };
             
             
             
             
-            graphics.Update();*/
+            
+            
+            
+            List<Keyboard.Key> KeyBuffer = new List<Keyboard.Key>(4);
+            Frame.Window.KeyPressed+= (obj, e) =>
+            {
+                KeyBuffer.Add(e.Code);
+
+                if (Rules.GetActivePerson().GetType() == typeof(Player))
+                {
+                    switch (e.Code)
+                    {
+                        
+                    }
+                    
+                }
+            };
+            Frame.Window.KeyReleased += (obj, e) =>
+            {
+                KeyBuffer.Remove(e.Code);
+                switch (e.Code)
+                {
+                    
+                }
+            };
+            
+            Frame.Update();
+            
         }
     }
 }

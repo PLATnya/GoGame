@@ -5,60 +5,23 @@
     <projectFile>UnitTest/UnitTest.vcxproj</projectFile>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9372218f-cb11-4cdd-bbf3-52bcf086106d" name="Default Changelist" comment="Some commit">
-      <change afterPath="$PROJECT_DIR$/Game/Utilities.cs" afterDir="false" />
+    <list default="true" id="9372218f-cb11-4cdd-bbf3-52bcf086106d" name="Default Changelist" comment="Have ntify">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.LetsGo/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.LetsGo/.idea/contentModel.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.LetsGo/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.LetsGo/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.LetsGo/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.LetsGo/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Game/Game.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Game/Game.csproj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Game/MainGame.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Game/MainGame.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Game/Utilities.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Game/Utilities.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Game/bin/Debug/netcoreapp3.1/Game.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Game/bin/Debug/netcoreapp3.1/Game.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Game/bin/Debug/netcoreapp3.1/Game.exe" beforeDir="false" afterPath="$PROJECT_DIR$/Game/bin/Debug/netcoreapp3.1/Game.exe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Game/bin/Debug/netcoreapp3.1/Game.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/Game/bin/Debug/netcoreapp3.1/Game.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Game/bin/Debug/netcoreapp3.1/Game.runtimeconfig.dev.json" beforeDir="false" afterPath="$PROJECT_DIR$/Game/bin/Debug/netcoreapp3.1/Game.runtimeconfig.dev.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Game/obj/Debug/netcoreapp3.1/Game.assets.cache" beforeDir="false" afterPath="$PROJECT_DIR$/Game/obj/Debug/netcoreapp3.1/Game.assets.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Game/obj/Debug/netcoreapp3.1/Game.csproj.CoreCompileInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/Game/obj/Debug/netcoreapp3.1/Game.csproj.CoreCompileInputs.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Game/obj/Debug/netcoreapp3.1/Game.csproj.FileListAbsolute.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Game/obj/Debug/netcoreapp3.1/Game.csproj.FileListAbsolute.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Game/obj/Debug/netcoreapp3.1/Game.csprojAssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/Game/obj/Debug/netcoreapp3.1/Game.csprojAssemblyReference.cache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Game/obj/Debug/netcoreapp3.1/Game.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Game/obj/Debug/netcoreapp3.1/Game.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Game/obj/Debug/netcoreapp3.1/Game.genruntimeconfig.cache" beforeDir="false" afterPath="$PROJECT_DIR$/Game/obj/Debug/netcoreapp3.1/Game.genruntimeconfig.cache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Game/obj/Debug/netcoreapp3.1/Game.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/Game/obj/Debug/netcoreapp3.1/Game.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Game/obj/Game.csproj.nuget.dgspec.json" beforeDir="false" afterPath="$PROJECT_DIR$/Game/obj/Game.csproj.nuget.dgspec.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Game/obj/Game.csproj.nuget.g.props" beforeDir="false" afterPath="$PROJECT_DIR$/Game/obj/Game.csproj.nuget.g.props" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Game/obj/project.assets.json" beforeDir="false" afterPath="$PROJECT_DIR$/Game/obj/project.assets.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Game/obj/project.nuget.cache" beforeDir="false" afterPath="$PROJECT_DIR$/Game/obj/project.nuget.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Game/obj/project.packagespec.json" beforeDir="false" afterPath="$PROJECT_DIR$/Game/obj/project.packagespec.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Game/obj/rider.project.restore.info" beforeDir="false" afterPath="$PROJECT_DIR$/Game/obj/rider.project.restore.info" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LetsGo.sln" beforeDir="false" afterPath="$PROJECT_DIR$/LetsGo.sln" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LetsGo.sln.DotSettings.user" beforeDir="false" afterPath="$PROJECT_DIR$/LetsGo.sln.DotSettings.user" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/NUnitTest/UnitTest1.cs" beforeDir="false" afterPath="$PROJECT_DIR$/NUnitTest/UnitTest1.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/NUnitTest/bin/Debug/netcoreapp3.1/Game.dll" beforeDir="false" afterPath="$PROJECT_DIR$/NUnitTest/bin/Debug/netcoreapp3.1/Game.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NUnitTest/bin/Debug/netcoreapp3.1/Game.exe" beforeDir="false" afterPath="$PROJECT_DIR$/NUnitTest/bin/Debug/netcoreapp3.1/Game.exe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/NUnitTest/bin/Debug/netcoreapp3.1/Game.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/NUnitTest/bin/Debug/netcoreapp3.1/Game.pdb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/NUnitTest/bin/Debug/netcoreapp3.1/NUnitTest.dll" beforeDir="false" afterPath="$PROJECT_DIR$/NUnitTest/bin/Debug/netcoreapp3.1/NUnitTest.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/NUnitTest/bin/Debug/netcoreapp3.1/NUnitTest.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/NUnitTest/bin/Debug/netcoreapp3.1/NUnitTest.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NUnitTest/bin/Debug/netcoreapp3.1/NUnitTest.runtimeconfig.dev.json" beforeDir="false" afterPath="$PROJECT_DIR$/NUnitTest/bin/Debug/netcoreapp3.1/NUnitTest.runtimeconfig.dev.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NUnitTest/obj/Debug/netcoreapp3.1/NUnitTest.assets.cache" beforeDir="false" afterPath="$PROJECT_DIR$/NUnitTest/obj/Debug/netcoreapp3.1/NUnitTest.assets.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NUnitTest/obj/Debug/netcoreapp3.1/NUnitTest.csproj.CoreCompileInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/NUnitTest/obj/Debug/netcoreapp3.1/NUnitTest.csproj.CoreCompileInputs.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NUnitTest/obj/Debug/netcoreapp3.1/NUnitTest.csproj.FileListAbsolute.txt" beforeDir="false" afterPath="$PROJECT_DIR$/NUnitTest/obj/Debug/netcoreapp3.1/NUnitTest.csproj.FileListAbsolute.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/NUnitTest/obj/Debug/netcoreapp3.1/NUnitTest.csprojAssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/NUnitTest/obj/Debug/netcoreapp3.1/NUnitTest.csprojAssemblyReference.cache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/NUnitTest/obj/Debug/netcoreapp3.1/NUnitTest.dll" beforeDir="false" afterPath="$PROJECT_DIR$/NUnitTest/obj/Debug/netcoreapp3.1/NUnitTest.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NUnitTest/obj/Debug/netcoreapp3.1/NUnitTest.genruntimeconfig.cache" beforeDir="false" afterPath="$PROJECT_DIR$/NUnitTest/obj/Debug/netcoreapp3.1/NUnitTest.genruntimeconfig.cache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/NUnitTest/obj/Debug/netcoreapp3.1/NUnitTest.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/NUnitTest/obj/Debug/netcoreapp3.1/NUnitTest.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NUnitTest/obj/NUnitTest.csproj.nuget.dgspec.json" beforeDir="false" afterPath="$PROJECT_DIR$/NUnitTest/obj/NUnitTest.csproj.nuget.dgspec.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NUnitTest/obj/NUnitTest.csproj.nuget.g.props" beforeDir="false" afterPath="$PROJECT_DIR$/NUnitTest/obj/NUnitTest.csproj.nuget.g.props" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NUnitTest/obj/project.assets.json" beforeDir="false" afterPath="$PROJECT_DIR$/NUnitTest/obj/project.assets.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NUnitTest/obj/project.nuget.cache" beforeDir="false" afterPath="$PROJECT_DIR$/NUnitTest/obj/project.nuget.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NUnitTest/obj/project.packagespec.json" beforeDir="false" afterPath="$PROJECT_DIR$/NUnitTest/obj/project.packagespec.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NUnitTest/obj/rider.project.restore.info" beforeDir="false" afterPath="$PROJECT_DIR$/NUnitTest/obj/rider.project.restore.info" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestProj/obj/Debug/netcoreapp3.1/TestProj.assets.cache" beforeDir="false" afterPath="$PROJECT_DIR$/TestProj/obj/Debug/netcoreapp3.1/TestProj.assets.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestProj/obj/Debug/netcoreapp3.1/TestProj.csprojAssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/TestProj/obj/Debug/netcoreapp3.1/TestProj.csprojAssemblyReference.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestProj/obj/TestProj.csproj.nuget.dgspec.json" beforeDir="false" afterPath="$PROJECT_DIR$/TestProj/obj/TestProj.csproj.nuget.dgspec.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestProj/obj/TestProj.csproj.nuget.g.props" beforeDir="false" afterPath="$PROJECT_DIR$/TestProj/obj/TestProj.csproj.nuget.g.props" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestProj/obj/project.assets.json" beforeDir="false" afterPath="$PROJECT_DIR$/TestProj/obj/project.assets.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestProj/obj/project.nuget.cache" beforeDir="false" afterPath="$PROJECT_DIR$/TestProj/obj/project.nuget.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestProj/obj/project.packagespec.json" beforeDir="false" afterPath="$PROJECT_DIR$/TestProj/obj/project.packagespec.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestProj/obj/rider.project.restore.info" beforeDir="false" afterPath="$PROJECT_DIR$/TestProj/obj/rider.project.restore.info" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -74,7 +37,9 @@
     <setting file="file://$USER_HOME$/AppData/Local/Symbols/src/nunit/nunit/c933a883ea25263ec575a654dae69fa38000edd9/src/NUnitFramework/framework/Internal/Reflect.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/83BD5AA8-4722-46C6-8329-A40E3E692F61/f3/d3577ef6/Drawable.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$USER_HOME$/AppData/Local/Symbols/src/nunit/nunit/c933a883ea25263ec575a654dae69fa38000edd9/src/NUnitFramework/framework/Internal/Commands/SetUpTearDownItem.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/2BC5ED24-0D5C-402C-8B6A-BD14FFCEE267/3DC/List.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/83BD5AA8-4722-46C6-8329-A40E3E692F61/14/d8f38ae2/RectangleShape.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/83BD5AA8-4722-46C6-8329-A40E3E692F61/5e/ce472577/Text.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/83BD5AA8-4722-46C6-8329-A40E3E692F61/da/74839bad/Shape.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
@@ -82,8 +47,8 @@
       <option value="$PROJECT_DIR$/Game/Game.csproj" />
       <option value="$PROJECT_DIR$/Game/f.cs" />
       <option value="$PROJECT_DIR$/NUnitTest/UnitTest1.cs" />
-      <option value="$PROJECT_DIR$/Game/Utilities.cs" />
       <option value="$PROJECT_DIR$/Game/MainGame.cs" />
+      <option value="$PROJECT_DIR$/Game/Utilities.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1ksI93LwSpySNYE1aJ0OBxwsdS9" />
@@ -169,8 +134,20 @@
       <workItem from="1606826981638" duration="1678000" />
       <workItem from="1606847418983" duration="5876000" />
       <workItem from="1606989676603" duration="24101000" />
-      <workItem from="1607940217271" duration="1829000" />
+      <workItem from="1607940217271" duration="20342000" />
+      <workItem from="1608119633408" duration="3148000" />
+      <workItem from="1608125676686" duration="23324000" />
+      <workItem from="1608195203255" duration="7734000" />
+      <workItem from="1608214859833" duration="8198000" />
     </task>
+    <task id="LOCAL-00001" summary="Have ntify">
+      <created>1607942505695</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1607942505695</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -193,6 +170,7 @@
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
     <MESSAGE value="Some commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="Some commit" />
+    <MESSAGE value="Have ntify" />
+    <option name="LAST_COMMIT_MESSAGE" value="Have ntify" />
   </component>
 </project>

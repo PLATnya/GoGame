@@ -21,19 +21,14 @@ namespace NUnitTest
 
             Rules = new GoRules(9);
             player = new Player(Rules);
-            BigBrother ChangeStone = new ChangeStoneState();
-            player.AddObserver(ChangeStone);
+            //BigBrother ChangeStone = new ChangeStoneState();
+            //player.AddObserver(ChangeStone);
             player2 = new Player(Rules,2);
-            player2.AddObserver(new ChangeStoneState());
+            //player2.AddObserver(new ChangeStoneState());
 
         }
-        [Test]
-        public void TestField()
-        {
-            PlayerField df = PlayerField.GetGame();
-            
-            Assert.AreEqual(df.MainFrame,PlayerField.GetGame().MainFrame);
-        }
+        
+        
         
         [Test]
         public void Compare_Reference_To_Rules()
@@ -133,5 +128,13 @@ namespace NUnitTest
             Assert.Pass();
             //player.MakeStep()
         }
+
+        [Test]
+        public void TestBug()
+        {
+            ((GoRules) Rules)[0, 8] = 3;
+            Assert.Pass();
+        }
+        
     }
 }
