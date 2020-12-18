@@ -13,6 +13,7 @@
       <change beforePath="$PROJECT_DIR$/Game/bin/Debug/netcoreapp3.1/Game.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/Game/bin/Debug/netcoreapp3.1/Game.pdb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Game/obj/Debug/netcoreapp3.1/Game.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Game/obj/Debug/netcoreapp3.1/Game.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Game/obj/Debug/netcoreapp3.1/Game.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/Game/obj/Debug/netcoreapp3.1/Game.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NUnitTest/obj/Debug/netcoreapp3.1/NUnitTest.csprojAssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/NUnitTest/obj/Debug/netcoreapp3.1/NUnitTest.csprojAssemblyReference.cache" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,8 +39,8 @@
       <option value="$PROJECT_DIR$/Game/Game.csproj" />
       <option value="$PROJECT_DIR$/Game/f.cs" />
       <option value="$PROJECT_DIR$/NUnitTest/UnitTest1.cs" />
-      <option value="$PROJECT_DIR$/Game/MainGame.cs" />
       <option value="$PROJECT_DIR$/Game/Utilities.cs" />
+      <option value="$PROJECT_DIR$/Game/MainGame.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1ksI93LwSpySNYE1aJ0OBxwsdS9" />
@@ -129,7 +130,10 @@
       <workItem from="1608119633408" duration="3148000" />
       <workItem from="1608125676686" duration="23324000" />
       <workItem from="1608195203255" duration="7734000" />
-      <workItem from="1608214859833" duration="19689000" />
+      <workItem from="1608214859833" duration="20777000" />
+      <workItem from="1608243785336" duration="131000" />
+      <workItem from="1608277817818" duration="11002000" />
+      <workItem from="1608289934694" duration="320000" />
     </task>
     <task id="LOCAL-00001" summary="Have ntify">
       <created>1607942505695</created>

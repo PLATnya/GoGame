@@ -16,11 +16,7 @@ using PrimitiveType = SFML.Graphics.PrimitiveType;
 namespace Rendering
 {
 
-    enum EInput
-    {
-        PRESSED,
-        RELEASED
-    }
+   
     abstract class StoneState
     {
         protected GameObject Obj;
@@ -44,7 +40,7 @@ namespace Rendering
             Obj.Shape.Position = PlayerField.GetGame().MainFrame.MousePosition;
         }
     }
-
+   
 
     public abstract class ScreenObject
     {
@@ -207,57 +203,56 @@ namespace Rendering
         
         public void UpdateScore()
         {
-
+            if (Rules.bIsFinished) Console.WriteLine("FINISH");
             ScoreObjects[0].Text.DisplayedString = "Score: " + Rules.Persons[0].Score.ToString();
             ScoreObjects[1].Text.DisplayedString = "Score: " + Rules.Persons[1].Score.ToString();
         }
+        
         public Goban(GoRules Rules)
         {
             this.Rules = Rules;
             Grid = new GameObject[Rules.SIZE, Rules.SIZE];
             ScoreObjects = new TextObject[2];
-            
+
             Vector2u Size = PlayerField.GetGame().MainFrame.Window.Size;
-            GameObject Back = new GameObject(new RectangleShape((Vector2f)Size));
+            GameObject Back = new GameObject(new RectangleShape((Vector2f) Size));
             Back.Shape.FillColor = Color.Blue;
-            
+
             AddShape(Back);
 
 
-            
-            
-            
-            
-            int MinDimension = (int)Math.Min(Size.X, Size.Y);
-            int Offset = MinDimension/20;
+
+
+
+
+            int MinDimension = (int) Math.Min(Size.X, Size.Y);
+            int Offset = MinDimension / 20;
             int PlaceSize = MinDimension - Offset;
-            
-            
+
+
             GameObject place = new GameObject(new RectangleShape(new Vector2f(PlaceSize, PlaceSize)));
-            
+
             place.Subscribe = new NotifierSub(place);
-           
+
             place.Subscribe.AddObserver(new OnPressMessage(((i, i1) =>
             {
-                
-                if (!Rules.GetActivePerson().IsBot())
+
+                if (!Rules.GetActivePerson().IsBot()&&!Rules.bIsFinished)
                 {
                     int Id = Rules.GetActivePerson().GetHashCode() - 1;
                     Console.WriteLine(Id.ToString());
-                    SelectedStone = new Stone(CubeSize / 4f);
+                    SelectedStone = new Stone(CubeSize / 3f);
                     Color CustomColor = new Color();
                     CustomColor.A = 255;
                     CustomColor.R = (byte) (255 * Id);
                     CustomColor.G = (byte) (255 * Id);
-                    CustomColor.B = (byte) (255 * Id); 
+                    CustomColor.B = (byte) (255 * Id);
                     SelectedStone.Shape.FillColor = CustomColor;
                     SelectedStone.ChangeState(new GrabedState(SelectedStone));
                     AddShape(SelectedStone);
                 }
-                
-                
             })));
-            
+
             place.Subscribe.AddObserver(new OnReleaseMessage(((x, y) =>
             {
                 if (!Rules.GetActivePerson().IsBot())
@@ -277,68 +272,87 @@ namespace Rendering
                         {
                             RemoveShape(SelectedStone);
                         }
+
                         SelectedStone = null;
                     }
                 }
             })));
-            
+
             AddShape(place);
-            place.Shape.Position = new Vector2f(Offset/2, Offset/2);
+            place.Shape.Position = new Vector2f(Offset / 2, Offset / 2);
             place.Shape.FillColor = Color.Green;
 
             int size = Rules.SIZE;
-            CubeSize = (float)PlaceSize / size;
+            CubeSize = (float) PlaceSize / size;
             RectOffset = Offset / 2 + CubeSize / 2;
-            for (int i = 0; i < size; i ++)
+            for (int i = 0; i < size; i++)
             {
-                RectangleShape lineHorizontal = new RectangleShape(new Vector2f(PlaceSize-CubeSize, 1));
+                RectangleShape lineHorizontal = new RectangleShape(new Vector2f(PlaceSize - CubeSize, 1));
                 lineHorizontal.FillColor = Color.Black;
-                lineHorizontal.Position = new Vector2f(RectOffset,RectOffset + CubeSize * i);
+                lineHorizontal.Position = new Vector2f(RectOffset, RectOffset + CubeSize * i);
                 AddShape(new GameObject(lineHorizontal));
-                
-                RectangleShape lineVertical = new RectangleShape( new Vector2f(1,PlaceSize-CubeSize));
+
+                RectangleShape lineVertical = new RectangleShape(new Vector2f(1, PlaceSize - CubeSize));
                 lineVertical.FillColor = Color.Black;
-                lineVertical.Position = new Vector2f(RectOffset + CubeSize * i,RectOffset);
+                lineVertical.Position = new Vector2f(RectOffset + CubeSize * i, RectOffset);
                 AddShape(new GameObject(lineVertical));
             }
 
-            
+
             ScoreObjects[0] = new TextObject("Score: 0", new Font("C:/CurrentProjects/LetsGo/Game/FONT.ttf"));
             ScoreObjects[0].Text.FillColor = Color.Black;
             ScoreObjects[1] = new TextObject("Score: 0", new Font("C:/CurrentProjects/LetsGo/Game/FONT.ttf"));
             ScoreObjects[1].Text.FillColor = Color.White;
             Vector2f TextSize = new Vector2f(ScoreObjects[0].Text.GetGlobalBounds().Width,
-                ScoreObjects[0].Text.GetGlobalBounds().Height);
+                ScoreObjects[0].Text.GetGlobalBounds().Height + 20);
             ScoreObjects[0].Text.Position = (Vector2f) PlayerField.GetGame().MainFrame.Window.Size - TextSize;
-            
+
             TextSize = new Vector2f(ScoreObjects[1].Text.GetGlobalBounds().Width,
                 ScoreObjects[1].Text.GetGlobalBounds().Height);
-            ScoreObjects[1].Text.Position = new Vector2f( (PlayerField.GetGame().MainFrame.Window.Size.X - TextSize.X),0);
+            ScoreObjects[1].Text.Position =
+                new Vector2f((PlayerField.GetGame().MainFrame.Window.Size.X - TextSize.X), 0);
             AddShape(ScoreObjects[0]);
             AddShape(ScoreObjects[1]);
 
             
-            GameObject Pass = new GameObject(new RectangleShape(new Vector2f(50,50)));
+            
+            TextObject PassText = new TextObject("Pass", new Font("C:/CurrentProjects/LetsGo/Game/FONT.ttf"));
+            GameObject Pass = new GameObject(new RectangleShape(new Vector2f(
+                PassText.Text.GetGlobalBounds().Width * 1.5f, PassText.Text.GetGlobalBounds().Height * 1.5f)));
+
             //ButtonObject Pass = new ButtonObject("Pass", new Font("C:/CurrentProjects/LetsGo/Game/FONT.ttf"));
-            Pass.Shape.Position = new Vector2f(750,300);
+            Pass.Shape.Position = new Vector2f(650, 300);
+            PassText.Text.Position = new Vector2f(650, 300);
+            PassText.Text.FillColor = Color.Magenta;
             Pass.Subscribe = new NotifierSub(Pass);
             Pass.Subscribe.AddObserver(new OnPressMessage(((i, i1) =>
             {
                 Console.WriteLine("dfd");
-                if(!Rules.GetActivePerson().IsBot()) ((Player)Rules.GetActivePerson()).Pass();
-            })));
-            AddShape(Pass);
-        }
-        
+                if (!Rules.GetActivePerson().IsBot()) ((Player) Rules.GetActivePerson()).Pass();
 
-        
+                if (Rules.bIsFinished)
+                {
+                    string EndText = "";
+                    if (Rules.Persons[0].Score < Rules.Persons[1].Score) EndText = "WHITE WIN";
+                    else if (Rules.Persons[0].Score > Rules.Persons[1].Score) EndText = "BLACK WIN";
+                    else EndText = "DRAW";
+                    TextObject FinishText =
+                        new TextObject(EndText, new Font("C:/CurrentProjects/LetsGo/Game/FONT.ttf"));
+                    FinishText.Text.Position = new Vector2f(250, 250);
+                    FinishText.Text.FillColor = Color.Blue;
+                    
+                    AddShape(FinishText);
+                }
+                Pass.Shape.FillColor = Color.Green;
+            })));
+            Pass.Subscribe.AddObserver(new OnReleaseMessage(((i, i1) => { Pass.Shape.FillColor = Color.White; })));
+            AddShape(Pass);
+            AddShape(PassText);
+        }
     }
-    
-    
-    
     public class Graphics
     {
-        //TODO: переместить всю логику нажатий и тд в надлюдателя, добавить каждой групе подписку
+        
         private List<Group> Groups;
         private RenderWindow _window;
         public Vector2f MousePosition;
@@ -358,29 +372,39 @@ namespace Rendering
             {
                 if (args.Button == Mouse.Button.Left)
                 {
-                    foreach (var VARIABLE in Groups)
+                    for (int i = 0; i < Groups.Count; i++)
                     {
                         FMessage Message = new FMessage();
                         Message.Dict = new Dictionary<string, int>();
                         Message.Dict["X"] = args.X;
                         Message.Dict["Y"] = args.Y;
-                        VARIABLE.Notify(EEvents.PRESS, Message);
+                        Groups[i].Notify(EEvents.PRESS, Message);
                     }
+                    
                 }
             };
             _window.MouseButtonReleased += (sender, args) =>
             {
-                if (args.Button == Mouse.Button.Left) 
+                if (args.Button == Mouse.Button.Left)
                 {
-                    
-                    foreach (var VARIABLE in Groups)
+                    for (int i = 0; i < Groups.Count; i++)
                     {
                         FMessage Message = new FMessage();
                         Message.Dict = new Dictionary<string, int>();
                         Message.Dict["X"] = args.X;
                         Message.Dict["Y"] = args.Y;
-                        VARIABLE.Notify(EEvents.RELEASE, Message);
+                        Groups[i].Notify(EEvents.RELEASE, Message);
                     }
+                    
+                }
+            };
+            _window.KeyPressed += (sender, args) =>
+            {
+                switch (args.Code)
+                {
+                    case Keyboard.Key.F:
+                        PlayerField.GetGame().StartGame(9);
+                        break;
                 }
             };
             _window.MouseMoved += (sender, args) => {MousePosition = new Vector2f(args.X, args.Y); };
@@ -419,7 +443,6 @@ namespace Events
     public struct FMessage
     {
         public Dictionary<string, int> Dict;
-        public ArrayList Data;
     }
     public abstract class BigBrother
     {
@@ -515,35 +538,9 @@ namespace Events
         }
         public void AddObserver(BigBrother Brother)
         {
-            //BigBrother Buff = Brother;
-            //Buff.Next = ObserverHead;
-            
-            //((OnPressMessage) Brother).Pressed = Make; 
             if(ObserverHead!=null)
                 Brother.Next = ObserverHead;
             ObserverHead = Brother;
-            //ObserverHead = Buff;
-        }
-
-        public void Remove(ref BigBrother Brother)
-        {
-            if (ReferenceEquals(ObserverHead, Brother))
-            {
-                ObserverHead = Brother.Next; 
-                Brother.Next = null;
-                return; 
-            }
-            BigBrother current = ObserverHead; 
-            while (current != null) 
-            { 
-                if (current.Next == Brother) 
-                { 
-                    current.Next = Brother.Next; 
-                    Brother.Next = null; 
-                    return;
-                }
-                current = current.Next;
-            }   
         }
         public void Notify(EEvents Event, FMessage Data)
         {
@@ -559,57 +556,3 @@ namespace Events
     }
 }
 
-namespace Commands
-{
-    public abstract class Command
-    {
-        private Player ReceiverPlayer;
-        public abstract void Execute();
-        public Command(Player ReceiverPlayer)
-        {
-            this.ReceiverPlayer = ReceiverPlayer;
-        }
-    }
-    
-    public class PassCommand : Command
-    {
-        public PassCommand(Player player) : base(player)
-        {
-        }
-
-        public override void Execute()
-        {
-            
-        }
-    }
-    public class StepCommand : Command
-    {
-        public StepCommand(Player player) : base(player)
-        {
-        }
-
-        public override void Execute()
-        {
-            
-        }
-    }
-
-    public class UndoCommand : Command
-    {
-        public UndoCommand(Player ReceiverPlayer) : base(ReceiverPlayer)
-        {
-        }
-
-        public override void Execute()
-        {
-            
-        }
-    }
-}
-
-//Invoker(выполнятель) - Graphics
-
-    
-    //сделать шаг
-    //удалить
-    //пасс

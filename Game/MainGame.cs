@@ -142,7 +142,7 @@ namespace Game
         //
         public void Pass( )
         {
-            PassesCount += 1;
+            PassesCount = 1;
             Rules.NextStep();
         }
         public override int GetHashCode()
@@ -216,7 +216,7 @@ namespace Game
         public List<IPerson> Persons;
         private int ActivePersonIndex;
         private int _size;
-        private bool bIsFinished;
+        public bool bIsFinished;
         
 
         public void NextStep()
@@ -234,8 +234,10 @@ namespace Game
             }
             else
             {
+                
+                
                 Console.WriteLine(Persons[0].Score.ToString()+" "+ Persons[1].Score.ToString());
-                PlayerField.GetGame().MainFrame.Window.Close();
+                //PlayerField.GetGame().MainFrame.Window.Close();
                 //TODO: post end game logic its fucking hard
             }
         }
@@ -348,7 +350,6 @@ namespace Game
             }
         }
     }
-    //сосотояние
     
     
     public class PlayerField
@@ -357,6 +358,7 @@ namespace Game
         private static PlayerField _instance;
 
         public Graphics MainFrame { get; set; }
+        public IRules Rules { get; set; }
         public static PlayerField GetGame()
         {
             if (_instance == null) {
@@ -365,60 +367,29 @@ namespace Game
             }
             return _instance;
         }
+
+        public void StartGame(int SIZE)
+        {
+            GetGame().Rules = new GoRules(SIZE);
+            
+            Player FirstPlayer = new Player(Rules,1);
+            Player SecondPlayer = new Player(Rules,2);
+            
+            Goban Go = new Goban((GoRules)GetGame().Rules);
+            GetGame().MainFrame.AddGroup(Go);
+            
+            GetGame().MainFrame.Update();
+        }
+        
     }
+    
     
     class Program
     {
         static void Main(string[] args)
         {
-            
-            
             PlayerField Field = PlayerField.GetGame();
-            Graphics Frame = Field.MainFrame;
-            GoRules Rules = new GoRules(9);
-            
-            
-            Player FirstPlayer = new Player(Rules,1);
-            Player SecondPlayer = new Player(Rules,2);
-
-
-            Goban Go = new Goban(Rules);
-            Frame.AddGroup(Go);
-
-
-
-           
-            
-            
-            
-            
-            List<Keyboard.Key> KeyBuffer = new List<Keyboard.Key>(4);
-            Frame.Window.KeyPressed+= (obj, e) =>
-            {
-                KeyBuffer.Add(e.Code);
-
-                if (Rules.GetActivePerson().GetType() == typeof(Player))
-                {
-                    switch (e.Code)
-                    {
-                        case Keyboard.Key.F:
-                            ((Player)Rules.GetActivePerson()).Pass();
-                            break;
-                    }
-                    
-                }
-            };
-            Frame.Window.KeyReleased += (obj, e) =>
-            {
-                KeyBuffer.Remove(e.Code);
-                switch (e.Code)
-                {
-                    
-                }
-            };
-            
-            Frame.Update();
-            
+            Field.StartGame(9);
         }
     }
 }
