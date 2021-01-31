@@ -1,19 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
-using Events;
-using Game;
-using Rendering;
 using SFML.Graphics;
 using SFML.System;
 using SFML.Window;
-using EventType = Events.EventType;
+using Game.Events;
+using Game.Logic;
+using EventType = Game.Events.EventType;
 
-namespace Rendering
+namespace Game.Rendering
 {
     abstract class StoneState
     {
         protected readonly GameObject Obj;
-
         protected StoneState(GameObject obj)
         {
             Obj = obj;
@@ -36,6 +34,7 @@ namespace Rendering
     {
         public NotifierSub Subscribe;
         public abstract void Update();
+        public abstract bool Contains(int x, int y);
     }
     public class GameObject:ScreenObject
     {
@@ -48,11 +47,15 @@ namespace Rendering
         {
             PlayerField.GetGame().MainFrame.Window.Draw(Shape);
         }
+
+        public override bool Contains(int x, int y)
+        {
+            return Shape.GetGlobalBounds().Contains(x, y);
+        }
     }
     public class TextObject:ScreenObject
     {
         public readonly Text Text;
-
         public TextObject(string str, Font fnt)
         {
             Text = new Text(str, fnt);
@@ -60,6 +63,10 @@ namespace Rendering
         public override void Update()
         {
             PlayerField.GetGame().MainFrame.Window.Draw(Text);
+        }
+        public override bool Contains(int x, int y)
+        {
+            return Text.GetGlobalBounds().Contains(x, y);
         }
     }
     class Stone : GameObject
@@ -104,7 +111,7 @@ namespace Rendering
             }
         }
 
-        public void Notify(EventType eventType,FMessage data)
+        public void Notify(EventType eventType,Message data)
         {
             for (int i = 0; i < _objects.Count; i++)
             {
@@ -197,6 +204,7 @@ namespace Rendering
                     customColor.B = (byte) (255 * id);
                     _selectedStone.Shape.FillColor = customColor;
                     _selectedStone.ChangeState(new GrabedState(_selectedStone));
+                    _selectedStone.Update();
                     AddShape(_selectedStone);
                 }
             })));
@@ -315,7 +323,7 @@ namespace Rendering
                 if (args.Button != Mouse.Button.Left) return;
                 foreach (var t in _groups)
                 {
-                    FMessage message = new FMessage();
+                    Message message = new Message();
                     message.Dict = new Dictionary<string, int>();
                     message.Dict["X"] = args.X;
                     message.Dict["Y"] = args.Y;
@@ -327,7 +335,7 @@ namespace Rendering
                 if (args.Button != Mouse.Button.Left) return;
                 foreach (var t in _groups)
                 {
-                    FMessage message = new FMessage();
+                    Message message = new Message();
                     message.Dict = new Dictionary<string, int>();
                     message.Dict["X"] = args.X;
                     message.Dict["Y"] = args.Y;
@@ -367,111 +375,4 @@ namespace Rendering
     }
 }
 
-namespace Events
-{
-    public enum EventType
-    {
-        Press,
-        Release,
-        
-    }
-    public struct FMessage
-    {
-        public Dictionary<string, int> Dict;
-    }
-    public abstract class BigBrother
-    {
-        internal abstract void OnNotify(ScreenObject obj, EventType eventType, FMessage data);
-        public abstract BigBrother Next { get; set; }
-    }
-    public class OnPressMessage:BigBrother
-    {
-        public delegate void Pressed(int x, int y);
-
-        private readonly Pressed _onPress;
-        public OnPressMessage(Pressed onPress)
-        {
-            _onPress = onPress;
-        }
-        internal override void OnNotify(ScreenObject obj, EventType eventType,FMessage data)
-        {
-            if (eventType == EventType.Press)
-            {
-                int x = data.Dict["X"];
-                int y = data.Dict["Y"];
-
-                bool contains = false;
-                if (obj.GetType() == typeof(GameObject))
-                {
-                    GameObject gameObj = (GameObject) obj;
-                    contains = gameObj.Shape.GetGlobalBounds().Contains(x, y);
-                    
-                   
-                }else if (obj.GetType() == typeof(TextObject))
-                {
-                    TextObject gameObj = (TextObject) obj;
-                    contains = gameObj.Text.GetGlobalBounds().Contains(x, y);
-                }
-                if (contains)
-                {
-                    _onPress(x,y);
-                }
-                
-            }
-            
-        }
-
-        private BigBrother _next;
-        public override BigBrother Next { get=>_next; set=>_next = value; }
-        
-    }
-    public class OnReleaseMessage:BigBrother
-    {
-        public delegate void Released(int x, int y);
-
-        private readonly Released _onRelease;
-        public OnReleaseMessage(Released onRelease)
-        {
-            _onRelease = onRelease;
-        }
-        internal override void OnNotify(ScreenObject obj, EventType eventType,FMessage data)
-        {
-            if (eventType == EventType.Release)
-            {
-                int x = data.Dict["X"];
-                int y = data.Dict["Y"];
-
-                _onRelease(x,y);
-            }
-        }
-        private BigBrother _next;
-        public override BigBrother Next { get=>_next; set=>_next = value; }
-    }
-    public class NotifierSub
-    {
-        private ScreenObject Self;
-        private BigBrother ObserverHead { get; set; }
-        public NotifierSub(ScreenObject obj)
-        {
-            Self = obj;
-        }
-        public void AddObserver(BigBrother brother)
-        {
-            if(ObserverHead!=null)
-                brother.Next = ObserverHead;
-            ObserverHead = brother;
-        }
-        public void Notify(EventType eventType, FMessage data)
-        {
-            BigBrother observer = ObserverHead;
-            while (true)
-            {
-                observer.OnNotify(Self,eventType,data);
-                if(observer.Next != null)
-                    observer = observer.Next;
-                else break;
-            }
-        }
-    }
-}
 

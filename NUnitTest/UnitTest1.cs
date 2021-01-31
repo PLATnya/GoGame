@@ -1,9 +1,8 @@
-using System;
-using System.Data;
+
 using NUnit.Framework;
-using Game;
-using Microsoft.VisualStudio.TestPlatform.TestHost;
-using NuGet.Frameworks;
+using Game.Logic;
+
+
 
 namespace NUnitTest
 {

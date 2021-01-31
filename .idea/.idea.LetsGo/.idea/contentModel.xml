@@ -4,6 +4,7 @@
     <e p="C:\CurrentProjects\LetsGO" t="IncludeFlat">
       <e p="Game" t="IncludeRecursive">
         <e p="bin" t="ExcludeRecursive" />
+        <e p="Events.cs" t="Include" />
         <e p="FONT.ttf" t="Include" />
         <e p="Game.csproj" t="IncludeRecursive" />
         <e p="MainGame.cs" t="Include" />
@@ -14,7 +15,7 @@
             </e>
           </e>
         </e>
-        <e p="Utilities.cs" t="Include" />
+        <e p="Rendering.cs" t="Include" />
       </e>
       <e p="LetsGo.sln" t="IncludeFlat" />
       <e p="NUnitTest" t="IncludeRecursive">

@@ -1,11 +1,11 @@
 ﻿#nullable enable
 using System;
 using System.Collections.Generic;
-using Rendering;
+using Game.Rendering;
 
 
 
-namespace Game
+namespace Game.Logic
 {
     
     public abstract class PersonBase
