@@ -462,31 +462,25 @@ namespace Events
         {
             if (Event == EEvents.PRESS)
             {
-               
-                int[,] Bounds = new int[2, 2];
-                if (Obj.GetType() == typeof(GameObject))
-                {
-                    GameObject GameObj = (GameObject) Obj;
-                    Vector2f Pos = (GameObj.Shape.Position - GameObj.Shape.Origin);
-                    Bounds[0, 0] = (int)Pos.X;
-                    Bounds[0, 1] = (int) Pos.X + (int)GameObj.Shape.GetGlobalBounds().Width;
-                    Bounds[1, 0] = (int)Pos.Y;
-                    Bounds[1, 1] = (int) Pos.X + (int)GameObj.Shape.GetGlobalBounds().Height;
-                }else if (Obj.GetType() == typeof(TextObject))
-                {
-                    TextObject GameObj = (TextObject) Obj;
-                    Vector2f Pos = (GameObj.Text.Position - GameObj.Text.Origin);
-                    Bounds[0, 0] = (int)Pos.X;
-                    Bounds[0, 1] = (int) Pos.X + (int)GameObj.Text.GetGlobalBounds().Width;
-                    Bounds[1, 0] = (int)Pos.Y;
-                    Bounds[1, 1] = (int) Pos.X + (int)GameObj.Text.GetGlobalBounds().Height;
-                }
-                
-                
                 int X = Message.Dict["X"];
                 int Y = Message.Dict["Y"];
 
-                if (X >= Bounds[0, 0] && X <= Bounds[0, 1] && Y >= Bounds[1, 0] && Y <= Bounds[1, 1])
+                bool bContain = false;
+                //int[,] Bounds = new int[2, 2];
+                if (Obj.GetType() == typeof(GameObject))
+                {
+                    GameObject GameObj = (GameObject) Obj;
+                    bContain = GameObj.Shape.GetGlobalBounds().Contains(X, Y);
+                    
+                   
+                }else if (Obj.GetType() == typeof(TextObject))
+                {
+                    TextObject GameObj = (TextObject) Obj;
+                    bContain = GameObj.Text.GetGlobalBounds().Contains(X, Y);
+
+                }
+
+                if (bContain)
                 {
                     OnPress(X,Y);
                 }
