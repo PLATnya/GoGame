@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Game", "Game\Game.csproj", "{4F64852D-4D2D-42F0-B576-A8AF4DB609C5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NUnitTest", "NUnitTest\NUnitTest.csproj", "{0BCBB0EE-0D63-4FC8-B49C-9E15980A6AFE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4F64852D-4D2D-42F0-B576-A8AF4DB609C5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4F64852D-4D2D-42F0-B576-A8AF4DB609C5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4F64852D-4D2D-42F0-B576-A8AF4DB609C5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4F64852D-4D2D-42F0-B576-A8AF4DB609C5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0BCBB0EE-0D63-4FC8-B49C-9E15980A6AFE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0BCBB0EE-0D63-4FC8-B49C-9E15980A6AFE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0BCBB0EE-0D63-4FC8-B49C-9E15980A6AFE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0BCBB0EE-0D63-4FC8-B49C-9E15980A6AFE}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
