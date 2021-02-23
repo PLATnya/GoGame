@@ -9,17 +9,16 @@ using EventType = Game.Events.EventType;
 
 namespace Game.Rendering
 {
-    abstract class StoneState
+    public abstract class GameObjectState
     {
         protected readonly GameObject Obj;
-        protected StoneState(GameObject obj)
+        protected GameObjectState(GameObject obj)
         {
             Obj = obj;
         }
-
         public abstract void UpdateState();
     }
-    internal class GrabedState : StoneState
+    internal class GrabedState : GameObjectState
     {
         public GrabedState(GameObject obj) : base(obj)
         {
@@ -30,6 +29,8 @@ namespace Game.Rendering
             Obj.Shape.Position = PlayerField.GetGame().MainFrame.MousePosition;
         }
     }
+    
+    
     public abstract class ScreenObject
     {
         public NotifierSub Subscribe;
@@ -38,10 +39,15 @@ namespace Game.Rendering
     }
     public class GameObject:ScreenObject
     {
+        protected GameObjectState _state;
         public Shape Shape { get; }
         public GameObject(Shape shae)
         {
             Shape = shae;
+        }
+        public void ChangeState(GameObjectState state)
+        {
+            _state = state;
         }
         public override void Update()
         {
@@ -71,15 +77,12 @@ namespace Game.Rendering
     }
     class Stone : GameObject
     {
-        private StoneState _state;
+        
         public Stone(float r) : base(new CircleShape(r))
         {
             Shape.Origin = new Vector2f(r, r);
         }
-        public void ChangeState(StoneState state)
-        {
-            _state = state;
-        }
+        
 
         public override void Update()
         {
@@ -161,7 +164,6 @@ namespace Game.Rendering
                     }
                 }
             }
-
             UpdateScore();
         }
 
@@ -177,7 +179,6 @@ namespace Game.Rendering
             _rulesBase = rulesBase;
             _grid = new GameObject[rulesBase[0], rulesBase[0]];
             _scoreObjects = new TextObject[2];
-
             Vector2u windowSize = PlayerField.GetGame().MainFrame.Window.Size;
             GameObject back = new GameObject(new RectangleShape((Vector2f) windowSize));
             back.Shape.FillColor = Color.Blue;
@@ -318,6 +319,12 @@ namespace Game.Rendering
 
             _groups = new List<Group>();
 
+            Window.Resized += (obj, e) =>
+            {
+                FloatRect visibleArea = new FloatRect(0, 0, e.Width, e.Height);
+                Window.SetView(new View(visibleArea));
+                Window.Clear(Color.Cyan);
+            };
             Window.MouseButtonPressed += (sender, args) =>
             {
                 if (args.Button != Mouse.Button.Left) return;
