@@ -1,5 +1,7 @@
 # Common IntelliJ Platform excludes
 
+
+*.sln.DotSettings
 UpgradeLog.*
 .idea/
 # User specific
