@@ -1,7 +1,8 @@
 # Common IntelliJ Platform excludes
 
 
-.sln.DotSettings
+*.sln.DotSettings
+>>>>>>> refactor_dependencies
 UpgradeLog.*
 .idea/
 # User specific
