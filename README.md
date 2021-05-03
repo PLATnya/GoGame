@@ -1,4 +1,6 @@
 # GoGame
+- .NET Core 3.1
+_____
 
 Board game "Go", created for studying purposes as a project for the course of learning the C # language
 Have 2 local players and board of size 9X9
