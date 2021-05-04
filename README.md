@@ -1,5 +1,6 @@
 # GoGame
 - .NET Core 3.1
+- SFML.net 2.4
 _____
 
 Board game "Go", created for studying purposes as a project for the course of learning the C # language
